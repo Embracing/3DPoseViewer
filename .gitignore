@@ -4,6 +4,5 @@ __pycache__/
 example/
 .vscode/
 
-*.npz
 *.zip
 *.ui
