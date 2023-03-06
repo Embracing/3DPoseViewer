@@ -1,0 +1,7 @@
+numpy
+av
+PIMS
+PyQt5
+PyOpenGL
+PyOpenGL_accelerate
+pyqtgraph

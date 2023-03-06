@@ -1,0 +1,9 @@
+# Specify filepatterns you want git to ignore.
+
+__pycache__/
+example/
+.vscode/
+
+*.npz
+*.zip
+*.ui
