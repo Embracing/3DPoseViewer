@@ -14,6 +14,12 @@ A python viewer for visualizing 3D human poses and facilitating debugging of pos
   <img style='width : 90%' src="./docs/demo.gif" />
 </p>
 
+## Features
+
+* Support multi-human and multi-camera.
+* Written in python, easy to use and hack.
+* Based on Qt, easy to add various interactive widgets.
+
 ## Install
 
 Requirements:
@@ -30,12 +36,6 @@ Requirements:
 ```shell
 pip install -r requirements.txt
 ```
-
-## Features
-
-* Support multi-human and multi-camera.
-* Written in python, easy to use and hack.
-* Based on Qt, easy to add various interactive widgets.
 
 ## Quickstart
 
@@ -79,7 +79,8 @@ If you find this viewer helpful, please cite:
 @inproceedings{ciproactive,
   title={Proactive Multi-Camera Collaboration for 3D Human Pose Estimation},
   author={Ci, Hai and Liu, Mickel and Pan, Xuehai and Zhong, Fangwei and Wang, Yizhou},
-  booktitle={International Conference on Learning Representations}
+  booktitle={International Conference on Learning Representations},
+  year={2023}
 }
 ```
 
