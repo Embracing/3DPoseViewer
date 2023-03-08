@@ -77,11 +77,12 @@ python -m visualize  # open the example data under /examples/seq1
 If you find this viewer helpful, please cite:
 
 ```bibtex
-@inproceedings{ciproactive,
+@inproceedings{ci2023proactive,
   title={Proactive Multi-Camera Collaboration for 3D Human Pose Estimation},
-  author={Ci, Hai and Liu, Mickel and Pan, Xuehai and Zhong, Fangwei and Wang, Yizhou},
-  booktitle={International Conference on Learning Representations},
-  year={2023}
+  author={Hai Ci and Mickel Liu and Xuehai Pan and fangwei zhong and Yizhou Wang},
+  booktitle={The Eleventh International Conference on Learning Representations },
+  year={2023},
+  url={https://openreview.net/forum?id=CPIy9TWFYBG}
 }
 ```
 
