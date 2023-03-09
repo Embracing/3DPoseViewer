@@ -10,8 +10,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from pyqtgraph import GraphicsLayoutWidget, Vector
 
-from ui.custom import CustomPlotItem, Plot3dToolBar
-from ui.ui import UiForm
+from .custom import CustomPlotItem, Plot3dToolBar
+from .ui import UiForm
 
 
 warnings.simplefilter('ignore', RuntimeWarning)
@@ -132,21 +132,21 @@ class Window(QMainWindow):
                 for gt_line in self.item_dict['3d']['gt_human_line_list'][human_idx]:
                     # gt_line.setData(pos=np.zeros((2, 3)))
                     self.m_ui.openGLWidget.removeItem(gt_line)
-            self.item_dict['3d']['gt_human_line_list'] = []
+            self.item_dict['3d'].pop('gt_human_line_list')
 
         if 'pred_human_line_list' in self.item_dict['3d']:
             for human_idx in range(self.pred_num_humans):
                 for pred_line in self.item_dict['3d']['pred_human_line_list'][human_idx]:
                     # pred_line.setData(pos=np.zeros((2, 3)))
                     self.m_ui.openGLWidget.removeItem(pred_line)
-            self.item_dict['3d']['pred_human_line_list'] = []
+            self.item_dict['3d'].pop('pred_human_line_list')
 
         if 'camera_axes_list' in self.item_dict['3d']:
             for camera_axes in self.item_dict['3d']['camera_axes_list']:
                 for camera_ax in camera_axes:
                     # camera_ax.setData(pos=np.zeros((2, 3)))
                     self.m_ui.openGLWidget.removeItem(camera_ax)
-            self.item_dict['3d']['camera_axes_list'] = []
+            self.item_dict['3d'].pop('camera_axes_list')
 
 
         self.video_list = []
@@ -155,6 +155,8 @@ class Window(QMainWindow):
             delattr(self, 'video_len')
         if hasattr(self, 'zarr_len'):
             delattr(self, 'zarr_len')
+        if hasattr(self, 'data3d_group'):
+            delattr(self, 'data3d_group')
 
     def add_view(self):
         self.m_ui.num_views += 1
