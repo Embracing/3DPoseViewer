@@ -11,7 +11,7 @@ A python viewer for visualizing 3D human poses and facilitating debugging of pos
 > [Proactive Multi-Camera Collaboration for 3D Human Pose Estimation (ICLR 2023)](https://openreview.net/pdf?id=CPIy9TWFYBG)
 
 <p align="center">
-  <img width=90% src="docs/demo.gif" />
+  <img width=100% src="docs/demo.gif" />
 </p>
 
 ## Features
