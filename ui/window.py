@@ -519,12 +519,12 @@ class Window(QMainWindow):
             else:
                 pred3d_this_person = np.array(pred3d_arr_plot[human_idx]).reshape((-1, 3))  # [j, 3]
 
-                # filter out flying detections
-                # TODO: UI
-                if human_idx < self.gt_num_humans:
-                    gt = gt3d_arr_plot[human_idx]  # [j, 3]
-                    flying = np.linalg.norm(gt - pred3d_this_person, axis=-1) > 50  # [j]
-                    pred3d_this_person[flying] = 0
+                # # filter out flying detections
+                # # TODO: UI
+                # if human_idx < self.gt_num_humans:
+                #     gt = gt3d_arr_plot[human_idx]  # [j, 3]
+                #     flying = np.linalg.norm(gt - pred3d_this_person, axis=-1) > 50  # [j]
+                #     pred3d_this_person[flying] = 0
 
             for pair, pred_line in zip(
                 self.meta_info['skeleton'],
