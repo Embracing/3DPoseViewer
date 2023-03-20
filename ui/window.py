@@ -83,6 +83,7 @@ class Window(QMainWindow):
         gz.translate(0, 0, 0)
         self.m_ui.openGLWidget.addItem(gz)
         self.item_dict['3d']['floor'] = gz
+        self.map_center = np.zeros((3,), dtype=np.float32)
 
         # create 3d pose items
         self.widgets_3d_inited = False
@@ -311,10 +312,6 @@ class Window(QMainWindow):
         self.item_dict['3d']['axis_y'].translate(*offset)
         self.item_dict['3d']['axis_z'].translate(*offset)
 
-        # adjust 3d viewpoint
-        self.m_ui.openGLWidget.opts['center'] = Vector(*offset)
-        # self.m_ui.openGLWidget.update()
-
     def openfile(self):
         filepath_list, filters = QFileDialog.getOpenFileNames(
             self, 'Choose File', '', 'Numpy Data(*.npz);;Videos (*.mp4 *.avi *.mov)'
@@ -355,8 +352,6 @@ class Window(QMainWindow):
             #     if 'map_center' in self.data3d_group.attrs:
             #         offset = self.data3d_group.attrs['map_center']
             #         self.translate_map(offset)
-            #     else:
-            #         print('map-specific metadata not found in zip')
 
             #     self.init_3d_widgets()
             #     self.init_plot()
@@ -382,10 +377,9 @@ class Window(QMainWindow):
 
                 # adjust map
                 if 'map_center' in self.data3d_group:
-                    offset = self.data3d_group['map_center']
-                    self.translate_map(offset)
-                else:
-                    print('map-specific metadata not found in npz')
+                    self.translate_map(self.data3d_group['map_center'] - self.map_center)
+                    self.map_center = self.data3d_group['map_center']
+                    self.m_ui.openGLWidget.opts['center'] = Vector(*self.map_center)
 
                 self.init_3d_widgets()
                 self.init_plot()

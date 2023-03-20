@@ -1,3 +1,4 @@
+import copy
 import sys
 from PyQt5.QtWidgets import *
 
@@ -10,6 +11,7 @@ def preprocess_data(data_dict):
     Transformation between unreal coordination (example data) and qt coordination
     y_qt = -y_unreal
     """
+    data_dict = copy.deepcopy(data_dict)
 
     for k, v in data_dict.items():
         if k in ['gt3d', 'pred3d', 'camera', 'map_center']:
